@@ -1,35 +1,35 @@
 markdown: kramdown
-pygments: true
+highlighter: true
 safe: false
 permalink: /posts/:title.html
 exclude:
   - README.md
 
-name: Your Site Name
-host: yourdomain.com
-desc: Some description of your site.
+name: wzp's garden
+#host: yourdomain.com
+desc: Watering flowers in my own garden.
 
 custom:
     category:
-        default: Default Category
-        another: Another Category
+        default: 生活
+        another: 学习
     categories:
       - name:  default
-        title: Default Category
+        title: 生活
 
       - name:  another
-        title: Another Category
+        title: 学习
 
     scrollingLoadCount: 2                          # 滚屏自动加载文章数量，“0”为关闭
 
 meta:
     author:
-        name: Your Name
-        email: your-email@example.com
+        name: 王志鹏
+        email: wzpfish@gmail.com
         disqus: your-disqus-short-name              # Disqus缩略标识
         gcse: 000346898720731947188:13h55x32l0y     # Google自定义搜索标识ID
-        github: your-github-account                 # GitHub账号
-        gravatar: 1cd8c12591616d8c22aaa624f8c07834  # Gravatar头像标识
+        github: wzpfish                             # GitHub账号
+        #gravatar: 1cd8c12591616d8c22aaa624f8c07834  # Gravatar头像标识
 
     disqus: disqus.com/embed.js                     # Disqus评论的JS地址
     gapi: http://www.google.com/jsapi               # Google API地址
