@@ -13,15 +13,14 @@ category: another
 
 首先是Push操作，当一个节点 u 溢出，并且 (u,v) 是残存边时，则u可以使用Push操作。
 
-```
-void Push(int u,int v){
-	int minF = min(e[u],cf[u][v]);  //u的溢出量和(u,v)残存量的最小值。
-	cf[u][v] -= minF;
-	cf[v][u] += minF;
-	e[u] -= minF;
-	e[v] += minF;   
-}
-```
+
+    void Push(int u,int v){
+	    int minF = min(e[u],cf[u][v]);  //u的溢出量和(u,v)残存量的    最小值。
+	    cf[u][v] -= minF;
+	    cf[v][u] += minF;
+	    e[u] -= minF;
+	    e[v] += minF;   
+    }
 
 Relabel操作，当一个节点u溢出，并且对于所有的边 (u,v) 都有u.h <= v.h，则u可以使用Rebel操作。**Note:在流网络中，若一个节点溢出，那要么可以对它Push，要么可以对它Relabel。**
 
