@@ -1,21 +1,21 @@
 ---
 layout: post
-title: ÍøÂçÁ÷Ö®Push RelabelËã·¨
+title: ç½‘ç»œæµä¹‹Push Relabelç®—æ³•
 category: another
 ---
 
 
-×¼±¸¿ªÊ¼ÖØÐÂÊ°ÆðËã·¨¡£¡£
+å‡†å¤‡å¼€å§‹é‡æ–°æ‹¾èµ·ç®—æ³•ã€‚ã€‚
 
-×î´óÁ÷Ëã·¨Ö÷ÒªÓÐÁ½´óÀà£¬Ò»ÀàÊÇÀûÓÃ**Ôö¹ãÂ·**£¬ÁíÒ»ÀàÊÇ**Push Relabel**µÄÏë·¨¡£
+æœ€å¤§æµç®—æ³•ä¸»è¦æœ‰ä¸¤å¤§ç±»ï¼Œä¸€ç±»æ˜¯åˆ©ç”¨**å¢žå¹¿è·¯**ï¼Œå¦ä¸€ç±»æ˜¯**Push Relabel**çš„æƒ³æ³•ã€‚
 
-½ñÌì¿´Ëã·¨µ¼ÂÛÑ§Ï°ÁËÕâÁ½´óÀàËã·¨µÄ»ù±¾Ë¼Ïë£¬ÕâÆªÖ÷Òª½²ÎÒÔÚÊµÏÖPush RelabelËã·¨Ê±µÄÒ»Ð©ÊÕ»ñ¡£
+ä»Šå¤©çœ‹ç®—æ³•å¯¼è®ºå­¦ä¹ äº†è¿™ä¸¤å¤§ç±»ç®—æ³•çš„åŸºæœ¬æ€æƒ³ï¼Œè¿™ç¯‡ä¸»è¦è®²æˆ‘åœ¨å®žçŽ°Push Relabelç®—æ³•æ—¶çš„ä¸€äº›æ”¶èŽ·ã€‚
 
-Ê×ÏÈÊÇPush²Ù×÷£¬µ±Ò»¸ö½Úµã u Òç³ö£¬²¢ÇÒ (u,v) ÊÇ²Ð´æ±ßÊ±£¬Ôòu¿ÉÒÔÊ¹ÓÃPush²Ù×÷¡£
+é¦–å…ˆæ˜¯Pushæ“ä½œï¼Œå½“ä¸€ä¸ªèŠ‚ç‚¹ u æº¢å‡ºï¼Œå¹¶ä¸” (u,v) æ˜¯æ®‹å­˜è¾¹æ—¶ï¼Œåˆ™uå¯ä»¥ä½¿ç”¨Pushæ“ä½œã€‚
 
 ```
 void Push(int u,int v){
-	int minF = min(e[u],cf[u][v]);  //uµÄÒç³öÁ¿ºÍ(u,v)²Ð´æÁ¿µÄ×îÐ¡Öµ¡£
+	int minF = min(e[u],cf[u][v]);  //uçš„æº¢å‡ºé‡å’Œ(u,v)æ®‹å­˜é‡çš„æœ€å°å€¼ã€‚
 	cf[u][v] -= minF;
 	cf[v][u] += minF;
 	e[u] -= minF;
@@ -23,11 +23,11 @@ void Push(int u,int v){
 }
 ```
 
-Relabel²Ù×÷£¬µ±Ò»¸ö½ÚµãuÒç³ö£¬²¢ÇÒ¶ÔÓÚËùÓÐµÄ±ß (u,v) ¶¼ÓÐu.h <= v.h£¬Ôòu¿ÉÒÔÊ¹ÓÃRebel²Ù×÷¡£**Note:ÔÚÁ÷ÍøÂçÖÐ£¬ÈôÒ»¸ö½ÚµãÒç³ö£¬ÄÇÒªÃ´¿ÉÒÔ¶ÔËüPush£¬ÒªÃ´¿ÉÒÔ¶ÔËüRelabel¡£**
+Relabelæ“ä½œï¼Œå½“ä¸€ä¸ªèŠ‚ç‚¹uæº¢å‡ºï¼Œå¹¶ä¸”å¯¹äºŽæ‰€æœ‰çš„è¾¹ (u,v) éƒ½æœ‰u.h <= v.hï¼Œåˆ™uå¯ä»¥ä½¿ç”¨Rebelæ“ä½œã€‚**Note:åœ¨æµç½‘ç»œä¸­ï¼Œè‹¥ä¸€ä¸ªèŠ‚ç‚¹æº¢å‡ºï¼Œé‚£è¦ä¹ˆå¯ä»¥å¯¹å®ƒPushï¼Œè¦ä¹ˆå¯ä»¥å¯¹å®ƒRelabelã€‚**
 
 ```
 void Relabel(int u){
-	int minH = INF;  //ÕâÀïÒªÉèÖÃÒ»¸öºÜ´óµÄÊý£¡£¡£¡ÒòÎªÔÚRelabel²Ù×÷Ê±£¬¿ÉÄÜ×îºóÄ³¸ö½ÚµãµÄhÖµ±ÈÔ´µãµÄhÖµs.h´óºÃ¶à  µ±Ê±×öÌâ¿¨ÁË°ëÌì
+	int minH = INF;  //è¿™é‡Œè¦è®¾ç½®ä¸€ä¸ªå¾ˆå¤§çš„æ•°ï¼ï¼ï¼å› ä¸ºåœ¨Relabelæ“ä½œæ—¶ï¼Œå¯èƒ½æœ€åŽæŸä¸ªèŠ‚ç‚¹çš„hå€¼æ¯”æºç‚¹çš„hå€¼s.hå¤§å¥½å¤š  å½“æ—¶åšé¢˜å¡äº†åŠå¤©
 	for(int i=0;i<=t;++i){
 		if(cf[u][i]>0) minH = min(minH,h[i]);
 	}
