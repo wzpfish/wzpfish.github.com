@@ -24,14 +24,13 @@ category: another
 
 Relabel操作，当一个节点u溢出，并且对于所有的边 (u,v) 都有u.h <= v.h，则u可以使用Rebel操作。**Note:在流网络中，若一个节点溢出，那要么可以对它Push，要么可以对它Relabel。**
 
-```
-void Relabel(int u){
-	int minH = INF;  //这里要设置一个很大的数！！！因为在Relabel操作时，可能最后某个节点的h值比源点的h值s.h大好多  当时做题卡了半天
-	for(int i=0;i<=t;++i){
-		if(cf[u][i]>0) minH = min(minH,h[i]);
+
+	void Relabel(int u){
+		int minH = INF;  //这里要设置一个很大的数！！！因为在Relabel操作时，可能最后某个节点的h值比源点的h值s.h大好多  当时做题卡了半天
+		for(int i=0;i<=t;++i){
+			if(cf[u][i]>0) minH = min(minH,h[i]);
+		}
+		h[u] = minH + 1;
 	}
-	h[u] = minH + 1;
-}
-```
 
 {% include references.md %}
