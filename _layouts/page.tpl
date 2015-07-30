@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="utf-8" />
+<meta name="baidu-site-verification" content="IN6WEwHlO0" />
 <meta name="author" content="{{ site.meta.author.name }}" />
 <meta name="keywords" content="{{ page.tags | join: ',' }}" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
