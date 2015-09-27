@@ -16,10 +16,10 @@ GFlags是一个C++库，同时也有一个Python移植，使用完全相同的�
 在程序中定义flags很简单，只需要用合适的宏来定义就可以了(这些宏定义在`gflags/gflags.h`文件末尾)，比如下面的例子:
 
 ```
-#include <gflags/gflags.h>
-        DEFINE_bool(big_menu, true, "Include 'advanced' options in the menu listing");
-        DEFINE_string(languages, "english,french,german",
-                 "comma-separated list of languages to offer in the 'lang' menu");
+    #include <gflags/gflags.h>
+    DEFINE_bool(big_menu, true, "Include 'advanced' options in the menu listing");
+    DEFINE_string(languages, "english,french,german",
+            "comma-separated list of languages to offer in the 'lang' menu");
 ```
 下面是支持的宏类型:
 
@@ -46,10 +46,10 @@ gflags追求简单的设计,因此没有复杂类型的宏,比如列表类型。
 可以像使用普通的变量一样使用它们:
 
 ```
-if (FLAGS_consider_made_up_languages)
-     FLAGS_languages += ",klingon";   // implied by --consider_made_up_languages
-if (FLAGS_languages.find("finnish") != string::npos)
-     HandleFinnish();
+    if (FLAGS_consider_made_up_languages)
+        FLAGS_languages += ",klingon";   // implied by --consider_made_up_languages
+    if (FLAGS_languages.find("finnish") != string::npos)
+        HandleFinnish();
 ```
 
 在`gflags.h`中有`get`和`set` flags的值的方法,但一般很少使用.
@@ -70,14 +70,14 @@ if (FLAGS_languages.find("finnish") != string::npos)
 下面是一个使用验证函数的例子:
 
 ```
-static bool ValidatePort(const char* flagname, int32 value) {
-   if (value > 0 && value < 32768)   // value is ok
-     return true;
-   printf("Invalid value for --%s: %d\n", flagname, (int)value);
-   return false;
-}
-DEFINE_int32(port, 0, "What port to listen on");
-static const bool port_dummy = RegisterFlagValidator(&FLAGS_port, &ValidatePort);
+    static bool ValidatePort(const char* flagname, int32 value) {
+        if (value > 0 && value < 32768)   // value is ok
+        return true;
+        printf("Invalid value for --%s: %d\n", flagname, (int)value);
+        return false;
+    }
+    DEFINE_int32(port, 0, "What port to listen on");
+    static const bool port_dummy = RegisterFlagValidator(&FLAGS_port, &ValidatePort);
 ```
 
 最好在定义flag之后紧接着注册验证函数,这样可以保证在main()函数传入命令行flags前完成注册.
@@ -132,11 +132,11 @@ static const bool port_dummy = RegisterFlagValidator(&FLAGS_port, &ValidatePort)
 有时候flag在库中定义且含有默认值,但是在使用中你可能需要换一个默认值.这很容易,只要在`ParseCommandLineFlags`函数调用前,为其重新赋值即可.如:
 
 ```
-DECLARE_bool(lib_verbose);   // mylib has a lib_verbose flag, default is false
-int main(int argc, char** argv) {
+    DECLARE_bool(lib_verbose);   // mylib has a lib_verbose flag, default is false
+    int main(int argc, char** argv) {
         FLAGS_lib_verbose = true;  // in my app, I want a verbose lib by default
-    ParseCommandLineFlags(...);
-}
+        ParseCommandLineFlags(...);
+    }
 
 ```
 此时仍可以从命令行中读取flag值, 如果没有设置,则为默认值.
@@ -184,8 +184,8 @@ Note it is still an error to say --tryfromenv=foo if foo is not DEFINED somewher
 In its simplest form, f should just be a list of flag assignments, one per line. Unlike on the commandline, the equals sign separating a flagname from its argument is required for flagfiles. An example flagfile, /tmp/myflags:
 
 ```
---nobig_menus
---languages=english,french
+    --nobig_menus
+    --languages=english,french
 ```
 
 With this flagfile, the following two lines are equivalent:
@@ -216,8 +216,8 @@ flag会按顺序执行。从命令行开始，遇到flagfile时，执行文件�
 如果你使用下面的代码:
 
 ```
-#define STRIP_FLAG_HELP 1    // this must go before the #include!
-#include <gflags/gflags.h>
+    #define STRIP_FLAG_HELP 1    // this must go before the #include!
+    #include <gflags/gflags.h>
 ```
 
 编译时会去除帮助信息,这可以使二进制文件变小,也有利于安全.
