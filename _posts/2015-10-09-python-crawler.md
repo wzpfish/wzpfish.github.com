@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Python爬虫
-category: other
+category: another
 ---
 
 # Python爬取微博数据

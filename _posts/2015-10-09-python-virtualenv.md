@@ -1,7 +1,7 @@
 ---
 layout: post
 title: python virtualenv使用
-category: other
+category: another
 ---
 
 # python virtualenv

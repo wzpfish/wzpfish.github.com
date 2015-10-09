@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 跟我一起写web server
-category: other
+category: another
 ---
 
 # 跟我一起写web server
