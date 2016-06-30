@@ -27,9 +27,9 @@ silver的课程地址: http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html
 	5. bellman optimality equation
 	
 详见手写笔记..
-![MRP](/img/RL/MRP.png)
-![MRP](/img/RL/MDP.png)
-![MRP](/img/RL/MDP2.png)
+![MRP](/img/RL/MRP.jpg)
+![MRP](/img/RL/MDP.jpg)
+![MRP](/img/RL/MDP2.jpg)
 
 ## Planning by DP
 这讲主要介绍用DP算法来解决MDP的planning问题，包括prediction和control： prediction是给定MDP的model和policy，求出value function； 而control是给定MDP的model，求出最优的policy.
@@ -45,8 +45,8 @@ DP的解决方案（synchronous和asynchronous）：
 最后总结了DP的优点特点及不足。
 
 详见手写笔记..
-![MRP](/img/RL/DP.png)
-![MRP](/img/RL/DP2.png)
-![MRP](/img/RL/DP3.png)
+![MRP](/img/RL/DP.jpg)
+![MRP](/img/RL/DP2.jpg)
+![MRP](/img/RL/DP3.jpg)
 
 {% include references.md %}
