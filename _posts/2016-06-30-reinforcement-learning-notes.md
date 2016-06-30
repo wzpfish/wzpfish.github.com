@@ -10,7 +10,7 @@ category: another
 
 silver的课程地址: http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html.
 
-##　introduction
+## introduction
 第一讲介绍了RL的一些基本概念，比如Reward，Agent，Environment，state，action，policy，value function和model。
 概念比较简单，就不写了。
 
