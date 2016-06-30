@@ -8,7 +8,7 @@ category: another
 
 上个月跟着silver的视频学了一下RL，最近看的时候感觉全忘了..于是重新整理了一下笔记，以便忘了的时候翻翻..
 
-silver的课程地址: http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html.
+silver的课程地址(http://www0.cs.ucl.ac.uk/staff/d.silver/web/Teaching.html)
 
 ## introduction
 第一讲介绍了RL的一些基本概念，比如Reward，Agent，Environment，state，action，policy，value function和model。
