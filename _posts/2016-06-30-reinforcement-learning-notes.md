@@ -1,6 +1,6 @@
 ---
 layout: post
-title: python virtualenv使用
+title: Notes for Reinforcement learning
 category: another
 ---
 
