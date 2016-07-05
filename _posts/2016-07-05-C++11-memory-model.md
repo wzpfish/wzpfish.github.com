@@ -5,8 +5,11 @@ category: another
 ---
 
 # C++11 Memory Model
+
 ## Memory Modle Basics
+
 ### objects and memory locations
+
 * object([cppreference-object](http://en.cppreference.com/w/cpp/language/object)) 
 An object, in C++, is a **region of storage**. 内置类型`int`, `float`以及user-defined类型都是object，注意bit fields不是object
 * memory location([cppreference-memory-location](http://en.cppreference.com/w/cpp/language/memory_model#Memory_location)).
@@ -15,6 +18,7 @@ A memory location is
 	2. or the largest contiguous sequence of bit fields of non-zero length
 	
 举个例子：
+
 ```
 struct S {
     char a;     // memory location #1
@@ -27,6 +31,7 @@ struct S {
     } e;
 } obj; // The object 'obj' consists of 4 separate memory locations
 ```
+
 a是个scalar type，因此它自己占一个memory location，b和c是连续的bit fields，它们占同一个memory location。匿名bit field用来强制下一个bit field新占一个memory location，因此d占location 3。ee在新的结构体中因此与d不是连续的，于是占location 4. 结构体e占一个memory location而obj占4个memory location。
 因此，c++中的objec可以有1个或多个memory location。
 
@@ -42,6 +47,7 @@ C++程序中的每一个object从它被初始化开始，有一个定义好的mo
 需要注意的是，虽然所有线程对于同一个object必须agree on the modification order，但对于不同的objects的修改线程不一定要agree on the order（即不同线程看到的修改不同object的顺序可能是不一样的？）
 
 ## Synchronizing operations and enforcing ordering
+
 ### the synchronizes-with relationship
 synchronizes-with关系只出现在原子操作之间。
 
@@ -53,6 +59,7 @@ synchronizes-with关系只出现在原子操作之间。
 
 ### the happens-before relationship
 happens-before:
+
 1. 在单线程中，如果A sequenced before B，那么A happens-before B
 2. 在多线程中，如果A inter-thread happens-before B，那么A happens-before B
 
@@ -60,6 +67,7 @@ happens-before:
 * 什么是sequenced before？
 若operation A和B不在同一句statement中，那么如果A在代码中排在B前面，则A sequenced before B。sequenced before具有传递性。 
 若A和B在同一个statement中，这个A和B的evaluate顺序可能是不一定的（[cppreference-sequence-before](http://en.cppreference.com/w/cpp/language/eval_order)）。比如下面代码：
+
 ```
 #include <iostream>
 void foo(int a,int b)
@@ -77,6 +85,7 @@ int main()
     foo(get_num(),get_num());
 }
 ```
+
 * 什么是inter-thread happens-before?
 如果一个线程中的operation A synchronizes-with 另一个线程中的operation B，那么A inter-thread happens-beofre B。inter-thread happens-before也具有传递性。
 
@@ -85,6 +94,7 @@ int main()
 如果A inter-thread happens-before B，且B sequenced before C，那么A inter-thread happens-before C。
 
 举一个利用synchronizes-with和happens-before的例子：
+
 ```
 #include <vector>
 #include <atomic>
@@ -149,6 +159,7 @@ void writer_thread()
 可以看出来，relaxed ordering会出现我们完全无法预期的结果，因此最好别用，除非你能牢牢掌握其精髓（tensorflow里用了，所以我看不懂。。）
 
 最后看个code的例子：
+
 ```
 #include <atomic>
 #include <thread>
