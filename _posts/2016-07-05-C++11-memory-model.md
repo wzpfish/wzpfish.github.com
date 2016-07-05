@@ -182,4 +182,5 @@ int main()
 在这段代码中，z.load()有可能是0. 解释：在a线程中，遵循happens-before关系，x先store，y后store，因此x对应的全局list看起来可能是这样的：false, true, y对应的全局list看起来可能是这样的: true, false. 由于线程b和线程a并没有关系，load y可以是true或者false，load x也可以是true或false。
 
 Reference: Cpp concurrency in action Chapter5
+
 {% include references.md %}
