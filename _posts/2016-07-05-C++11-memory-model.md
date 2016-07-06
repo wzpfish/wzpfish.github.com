@@ -194,6 +194,7 @@ int main()
 在这段代码中，z.load()有可能是0. 解释：在a线程中，遵循happens-before关系，x先store，y后store，因此x对应的全局list看起来可能是这样的：false, true, y对应的全局list看起来可能是这样的: true, false. 由于线程b和线程a并没有关系，load y可以是true或者false，load x也可以是true或false。
 
 * Acquire-release Ordering
+
 在这个model中，actomic load是acquire operations(memory_order_acquire), atomic store是release operations(memory_order_release)，atomic read-modify-write是acquire, release或都是(memory_order_acq_rel)。 
 
 在该model中，线程仍然不必agree on全局的operation order，但是加入了一个synchronization： 一个release load synchronizes-with 一个acquire read。
