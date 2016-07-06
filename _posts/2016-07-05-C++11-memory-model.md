@@ -124,6 +124,7 @@ void writer_thread()
 
 ### Memory ordering for atomic operations
 在c++中提供了六种不同的memory ordering，代表了三种memory-ordering models:
+
 1. sequentially consistent ordering (default)
     * memory_order_seq_cst
 2. acquire-release ordering
