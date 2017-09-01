@@ -66,4 +66,5 @@ template<typename _Tp>
 ```
 可以看到，无论传给std::move是lvalue还是rvalue，最终都是得到rvalue reference.
 
+补充一句，为什么要用std::move呢？因为一般来说rvalue reference用于move constructor以提高构造效率（不用copy，直接把内存拿过来用）。如果一个object你不想要了，想扔给move constructor构造一个新的object，就可以用std::move(object)传给构造函数，来调用move contructor. 如果不用std::move，那就变成普通的copy construct了。
 {% include references.md %}
